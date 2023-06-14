@@ -5,16 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard Funk</title>
+    <!--Style css-->
     <link rel = "stylesheet" type = "text/css" href = "style.css">
 </head>
 
 <body>
+    <!--all in a container-->
     <div class = "container">
         <h1>Weather Dashboard</h1>
+        <!--Form for looking up the weather-->
         <form id = "search-form">
-
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button type="submit">Search</button>
         </form>
-        
+        <!--where the information can populate-->
+        <div id="search-history"></div>
+        <div id="current-weather"></div>
+        <div id="forecast"></div>
     </div>
+    <!--JavaScript-->
+    <script src = "script.js"></script>
 </body>
 </html>
