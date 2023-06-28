@@ -1,4 +1,5 @@
 //variables to link js to html
+const API_KEY = "8eea77c5d98f1a676f012632c1fa37ad";
 const searchForm = document.getElementById("search-form");
 const cityInput = document.getElementById("city-input");
 const searchHistory = document.getElementById("search-history");
@@ -13,6 +14,7 @@ searchForm.addEventListener("submit", function (event) {
         getWeather(city);//created a search function
         cityInput.value = "";//clear the input value
     }
+    console.log("clicked search for city!")
 });
 
 //fetch to get weather from API
@@ -22,7 +24,7 @@ function getWeather(city) {
         .then(response => response.json())
         .then(data => {
             displayCurrentWeather(data);//to show the current weather
-            addSearchHistory(city);//to show the search 
+            addSearchHistory(city);//to show the search
         })
         .catch(error => {
             console.log("Error:", error);
