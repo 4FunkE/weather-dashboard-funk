@@ -19,7 +19,7 @@ searchForm.addEventListener("submit", function (event) {
 
 //fetch to get weather from API
 function getWeather(city) {
-    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=metric`;
+    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=imperial`;
     fetch(weatherURL)
         .then(response => response.json())
         .then(data => {
@@ -30,7 +30,7 @@ function getWeather(city) {
             console.log("Error:", error);
         });
 
-    const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_KEY}&units=metric`;
+    const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_KEY}&units=imperial`;
     fetch(forecastURL)
         .then(response => response.json())
         .then(data => {
