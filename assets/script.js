@@ -47,6 +47,27 @@ function getWeather(city) {
 }
 // WHEN I view current weather conditions for that city
 // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the the wind speed
+function displayCurrentWeather(data) {
+    const city = data.name;
+    const weather = data.weather[0].description;
+    const temperature = data.main.temp;
+    const humidity = data.main.humidity;
+    const windSpeed = data.wind.speed;
+    const iconCode = data.weather[0].icon;
+    const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`;
+//inner html added for each variable in the function
+    const html = `
+        <h2>Current Weather in ${city}</h2>
+        <p>Date: ${getCurrentDate()}</p>
+        <p>Weather: ${weather}</p>
+        <p>Temperature: ${temperature}°C</p>
+        <p>Humidity: ${humidity}%</p>
+        <p>Wind Speed: ${windSpeed} m/s</p>
+        <img src="${iconURL}" alt="Weather Icon">
+    `;
+    //add weather to html
+    currentWeather.innerHTML = html;
+}
 
 // WHEN I view future weather conditions for that city
 // THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
