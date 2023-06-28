@@ -24,7 +24,7 @@ function getWeather(city) {
         .then(response => response.json())
         .then(data => {
             displayCurrentWeather(data);//to show the current weather
-            addSearchHistory(city);//to show the search
+            addSearchHistory(city);//to show the search history of cities
         })
         .catch(error => {
             console.log("Error:", error);
@@ -34,14 +34,14 @@ function getWeather(city) {
     fetch(forecastURL)
         .then(response => response.json())
         .then(data => {
-            displayForecast(data);//need what the weather will display
+            displayForecast(data);//shows the full forcast
         })
         .catch(error => {
             console.log("Error:", error);
         });
 }
-// WHEN I view current weather conditions for that city
-// THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the the wind speed
+
+//The API call shows the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the the wind speed
 function displayCurrentWeather(data) {
     const city = data.name;
     const weather = data.weather[0].description;
@@ -64,8 +64,7 @@ function displayCurrentWeather(data) {
     currentWeather.innerHTML = html;
 }
 
-// WHEN I view future weather conditions for that city
-// THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+//The API call shows a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 function displayForecast(data) {
     const forecastItems = data.list.slice(0, 5).map(item => {
         const date = item.dt_txt.split(" ")[0];
@@ -91,19 +90,19 @@ function displayForecast(data) {
     forecast.innerHTML = forecastItems.join("");
 }
 
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
+//adding search history
 function addSearchHistory(city) {
     const searchItem = document.createElement("div");
     searchItem.classList.add("search-item");
     searchItem.textContent = city;
-    searchItem.addEventListener("click", function () {
-        getWeather(city);
+    searchItem.addEventListener("click", function () {//so that you can click the search history
+        getWeather(city);//then be presented with current and future conditions for that city
     });
 
     searchHistory.appendChild(searchItem);
 }
 
+//to get the current date for each call
 function getCurrentDate() {
     const date = new Date();
     const options = { year: "numeric", month: "long", day: "numeric" };
