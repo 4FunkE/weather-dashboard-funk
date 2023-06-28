@@ -20,3 +20,16 @@ input[type="text"] {
 button {
     padding: 5px 10px;
 }
+
+#search-history {
+    margin-bottom: 20px;
+}
+
+#current-weather {
+    margin-bottom: 20px;
+}
+
+#forecast {
+    display: flex;
+    flex-wrap: wrap;
+}
