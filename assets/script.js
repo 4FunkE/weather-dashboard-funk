@@ -55,7 +55,7 @@ function displayCurrentWeather(data) {
         <h2>Current Weather in ${city}</h2>
         <p>Date: ${getCurrentDate()}</p>
         <p>Weather: ${weather}</p>
-        <p>Temperature: ${temperature}°C</p>
+        <p>Temperature: ${temperature}°F</p>
         <p>Humidity: ${humidity}%</p>
         <p>Wind Speed: ${windSpeed} m/s</p>
         <img src="${iconURL}" alt="Weather Icon">
@@ -79,7 +79,7 @@ function displayForecast(data) {
             <div class="forecast-item">
                 <p>Date: ${date}</p>
                 <p>Weather: ${weather}</p>
-                <p>Temperature: ${temperature}°C</p>
+                <p>Temperature: ${temperature}°F</p>
                 <p>Humidity: ${humidity}%</p>
                 <p>Wind Speed: ${windSpeed} m/s</p>
                 <img src="${iconURL}" alt="Weather Icon">
