@@ -98,6 +98,17 @@ function displayForecast(data) {
 
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
+function addSearchHistory(city) {
+    const searchItem = document.createElement("div");
+    searchItem.classList.add("search-item");
+    searchItem.textContent = city;
+    searchItem.addEventListener("click", function () {
+        getWeather(city);
+    });
+
+    searchHistory.appendChild(searchItem);
+}
+
 function getCurrentDate() {
     const date = new Date();
     const options = { year: "numeric", month: "long", day: "numeric" };
