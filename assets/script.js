@@ -74,3 +74,8 @@ function displayCurrentWeather(data) {
 
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
+function getCurrentDate() {
+    const date = new Date();
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString(undefined, options);
+}
