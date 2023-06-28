@@ -1,4 +1,9 @@
-//Your API key is 8eea77c5d98f1a676f012632c1fa37ad
+const API_KEY = "8eea77c5d98f1a676f012632c1fa37ad";
+const searchForm = document.getElementById("search-form");
+const cityInput = document.getElementById("city-input");
+const searchHistory = document.getElementById("search-history");
+const currentWeather = document.getElementById("current-weather");
+const forecast = document.getElementById("forecast");
 
 // Endpoint:
 // - Please, use the endpoint api.openweathermap.org for your API calls
