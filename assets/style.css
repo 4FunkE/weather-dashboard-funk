@@ -33,3 +33,20 @@ button {
     display: flex;
     flex-wrap: wrap;
 }
+
+.forecast-item {
+    width: 120px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.forecast-item img {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+}
+
+.forecast-item p {
+    text-align: center;
+}
