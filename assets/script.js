@@ -71,6 +71,30 @@ function displayCurrentWeather(data) {
 
 // WHEN I view future weather conditions for that city
 // THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+function displayForecast(data) {
+    const forecastItems = data.list.slice(0, 5).map(item => {
+        const date = item.dt_txt.split(" ")[0];
+        const weather = item.weather[0].description;
+        const temperature = item.main.temp;
+        const humidity = item.main.humidity;
+        const windSpeed = item.wind.speed;
+        const iconCode = item.weather[0].icon;
+        const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`;
+
+        return `
+            <div class="forecast-item">
+                <p>Date: ${date}</p>
+                <p>Weather: ${weather}</p>
+                <p>Temperature: ${temperature}°C</p>
+                <p>Humidity: ${humidity}%</p>
+                <p>Wind Speed: ${windSpeed} m/s</p>
+                <img src="${iconURL}" alt="Weather Icon">
+            </div>
+        `;
+    });
+
+    forecast.innerHTML = forecastItems.join("");
+}
 
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
