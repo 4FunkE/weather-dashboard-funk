@@ -1,13 +1,20 @@
+/* items on full page */
 .container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #FFFAD7;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
+/* the heading text */
 h1 {
     text-align: center;
+    color: #FF2171;
 }
 
+/* for the input */
 form {
     margin-bottom: 20px;
 }
@@ -19,8 +26,14 @@ input[type="text"] {
 
 button {
     padding: 5px 10px;
+    background-color: #FF90BB;
+    color: #FFFAD7;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
+/* for the API call data */
 #search-history {
     margin-bottom: 20px;
 }
@@ -34,11 +47,14 @@ button {
     flex-wrap: wrap;
 }
 
+/* forcast readability */
 .forecast-item {
     width: 120px;
     margin: 10px;
     padding: 10px;
     border: 1px solid #ccc;
+    background-color: #FFE4A7;
+    border-radius: 5px;
 }
 
 .forecast-item img {
@@ -49,4 +65,5 @@ button {
 
 .forecast-item p {
     text-align: center;
+    color: #FF2171;
 }
