@@ -1,35 +1,28 @@
-const API_KEY = "8eea77c5d98f1a676f012632c1fa37ad";
+//variables to link js to html
 const searchForm = document.getElementById("search-form");
 const cityInput = document.getElementById("city-input");
 const searchHistory = document.getElementById("search-history");
 const currentWeather = document.getElementById("current-weather");
 const forecast = document.getElementById("forecast");
 
-// Endpoint:
-// - Please, use the endpoint api.openweathermap.org for your API calls
-// - Example of API call:
-// api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=8eea77c5d98f1a676f012632c1fa37ad
-// Useful links:
-// - API documentation https://openweathermap.org/api
-
 // event listener for search button
 searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const city = cityInput.value.trim();
     if (city) {
-        getWeather(city);
-        cityInput.value = "";
+        getWeather(city);//created a search function
+        cityInput.value = "";//clear the input value
     }
-    console.log("clicked search for city!")
 });
+
 //fetch to get weather from API
 function getWeather(city) {
     const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=metric`;
     fetch(weatherURL)
         .then(response => response.json())
         .then(data => {
-            displayCurrentWeather(data);//need what the weather will display
-            addSearchHistory(city);
+            displayCurrentWeather(data);//to show the current weather
+            addSearchHistory(city);//to show the search 
         })
         .catch(error => {
             console.log("Error:", error);
